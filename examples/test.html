@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue 源码解读</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{ count }}</div>
+      <button @click="incr">incr</button>
+      <div>{{getCurrentCount}}</div>
+    </div>
+    <script src="../dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {
+          incr() {
+            this.count++;
+          },
+        },
+        computed: {
+          getCurrentCount() {
+            return this.count + "^^^^^^^^^^";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

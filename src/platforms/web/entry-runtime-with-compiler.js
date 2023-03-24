@@ -100,6 +100,7 @@ Vue.prototype.$mount = function (
         },
         this
       );
+
       // 将两个渲染函数放到 this.$options 上
       options.render = render;
       options.staticRenderFns = staticRenderFns;

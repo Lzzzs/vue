@@ -3,30 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <title>Vue 源码解读</title>
+
+    <style>
+      #app {
+        height: 100px;
+      }
+    </style>
   </head>
   <body>
-    <div id="app">
-      <div>{{ count }}</div>
-      <button @click="incr">incr</button>
-      <div>{{getCurrentCount}}</div>
+    <div id="app" @click="changeShow">
+      <div v-if="isShow" ref="show">show</div>
     </div>
     <script src="../dist/vue.js"></script>
     <script>
       new Vue({
         el: "#app",
-        data() {
-          return {
-            count: 0,
-          };
+        data: {
+          isShow: false,
+          isShow1: false,
         },
         methods: {
-          incr() {
-            this.count++;
+          changeShow() {
+            this.isShow = true;
+            this.isShow1 = true;
           },
         },
-        computed: {
-          getCurrentCount() {
-            return this.count + "^^^^^^^^^^";
+        watch: {
+          isShow1() {
+            console.log(123);
           },
         },
       });

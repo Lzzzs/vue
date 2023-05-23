@@ -39,7 +39,7 @@ function flushCallbacks() {
 
 // 可以看到 timerFunc 的作用很简单，就是将 flushCallbacks 函数放入浏览器的异步任务队列中
 let timerFunc;
-if (typeof Promise !== "undefined" && isNative(Promise)) {
+if (isNative(Promise) && typeof Promise !== "undefined") {
   const p = Promise.resolve();
   // 首选 Promise.resolve().then()
   timerFunc = () => {

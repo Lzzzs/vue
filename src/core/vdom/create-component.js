@@ -121,6 +121,7 @@ export function createComponent(
 
   // plain options object: turn it into a constructor
   if (isObject(Ctor)) {
+    // 构造子类构造器
     Ctor = baseCtor.extend(Ctor);
   }
 
@@ -227,6 +228,7 @@ export function createComponentInstanceForVnode(
     options.render = inlineTemplate.render;
     options.staticRenderFns = inlineTemplate.staticRenderFns;
   }
+  // 执行构造函数
   return new vnode.componentOptions.Ctor(options);
 }
 

@@ -11,28 +11,20 @@
     </style>
   </head>
   <body>
-    <div id="app" @click="changeShow">
-      <div v-if="isShow" ref="show">show</div>
+    <div id="app">
+      <Hello-World></Hello-World>
+      <div>123</div>
     </div>
     <script src="../dist/vue.js"></script>
     <script>
       new Vue({
+        components: {
+          "hello-world": {
+            template: "<div>hello world</div>",
+          },
+        },
         el: "#app",
-        data: {
-          isShow: false,
-          isShow1: false,
-        },
-        methods: {
-          changeShow() {
-            this.isShow = true;
-            this.isShow1 = true;
-          },
-        },
-        watch: {
-          isShow1() {
-            console.log(123);
-          },
-        },
+        data: {},
       });
     </script>
   </body>

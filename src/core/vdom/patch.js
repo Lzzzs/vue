@@ -687,7 +687,7 @@ export function createPatchFunction(backend) {
       }
     }
 
-    // 走到这里，说明老姐节点或者新节点被遍历完了
+    // 走到这里，说明老节点或者新节点被遍历完了
     if (oldStartIdx > oldEndIdx) {
       // 说明老节点被遍历完了，新节点有剩余，则说明这部分剩余的节点是新增的节点，然后添加这些节点
       refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;

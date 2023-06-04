@@ -49,6 +49,7 @@ export function createFnInvoker(
   return invoker;
 }
 
+// 更新事件监听，组件自定义以及原生事件都会走这里
 export function updateListeners(
   on: Object,
   oldOn: Object,
@@ -82,6 +83,7 @@ export function updateListeners(
       }
       add(event.name, cur, event.capture, event.passive, event.params);
     } else if (cur !== old) {
+      // 更新过程 直接改变fns即可，不需要重新创建事件 因为事件实际执行的函数内部会拿函数的fns来进行执行
       old.fns = cur;
       on[name] = old;
     }

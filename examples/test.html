@@ -12,8 +12,8 @@
   </head>
   <body>
     <div id="app">
-      <Hello-World></Hello-World>
-      <div>123</div>
+      <Hello-World @click.native="handleLogin"></Hello-World>
+      <div @click="handleNumber">123</div>
     </div>
     <script src="../dist/vue.js"></script>
     <script>
@@ -24,8 +24,19 @@
           },
         },
         el: "#app",
-        data: {},
+        methods: {
+          handleLogin() {
+            console.log("login");
+          },
+          handleNumber() {
+            console.log(123);
+          },
+        },
       });
     </script>
   </body>
 </html>
+
+<!-- "_c('div',{attrs:{"id":"app"}},[_c('hello-world',{nativeOn:{"click":function($event){return
+handleLogin($event)}}}),_v("
+"),_c('div',{on:{"click":handleNumber}},[_v("123")])],1)" -->

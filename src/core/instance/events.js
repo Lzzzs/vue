@@ -21,10 +21,12 @@ export function initEvents(vm: Component) {
 
 let target: any;
 
+// 通过$on注册自定义事件
 function add(event, fn) {
   target.$on(event, fn);
 }
 
+// 通过$off移除自定义事件
 function remove(event, fn) {
   target.$off(event, fn);
 }
@@ -39,6 +41,7 @@ function createOnceHandler(event, fn) {
   };
 }
 
+// 更新组件的自定义事件
 export function updateComponentListeners(
   vm: Component,
   listeners: Object,

@@ -154,6 +154,7 @@ export function createComponent(
   resolveConstructorOptions(Ctor);
 
   // transform component v-model data into props & events
+  // 处理组件v-model
   if (isDef(data.model)) {
     transformModel(Ctor.options, data);
   }

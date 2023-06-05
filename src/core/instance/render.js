@@ -22,6 +22,7 @@ export function initRender(vm: Component) {
   const options = vm.$options;
   const parentVnode = (vm.$vnode = options._parentVnode); // the placeholder node in parent tree
   const renderContext = parentVnode && parentVnode.context;
+  // 获取插槽的VNodes
   vm.$slots = resolveSlots(options._renderChildren, renderContext);
   vm.$scopedSlots = emptyObject;
   // bind the createElement fn to this instance

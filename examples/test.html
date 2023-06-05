@@ -11,32 +11,40 @@
     </style>
   </head>
   <body>
-    <div id="app">
-      <Hello-World @click.native="handleLogin"></Hello-World>
-      <div @click="handleNumber">123</div>
-    </div>
+    <div id="app"></div>
     <script src="../dist/vue.js"></script>
     <script>
-      new Vue({
-        components: {
-          "hello-world": {
-            template: "<div>hello world</div>",
-          },
+      let Child = {
+        template:
+          '<div class="child">' +
+          '<slot text="Hello " :msg="msg"></slot>' +
+          "</div>",
+        data() {
+          return {
+            msg: "Vue",
+          };
         },
+      };
+
+      let vm = new Vue({
         el: "#app",
-        methods: {
-          handleLogin() {
-            console.log("login");
-          },
-          handleNumber() {
-            console.log(123);
-          },
+        template:
+          "<div>" +
+          "<child>" +
+          '<template slot-scope="props">' +
+          "<p>Hello from parent</p>" +
+          "<p>{{ props.text + props.msg}}</p>" +
+          "</template>" +
+          "</child>" +
+          "</div>",
+        components: {
+          Child,
         },
       });
     </script>
   </body>
 </html>
 
-<!-- "_c('div',{attrs:{"id":"app"}},[_c('hello-world',{nativeOn:{"click":function($event){return
-handleLogin($event)}}}),_v("
-"),_c('div',{on:{"click":handleNumber}},[_v("123")])],1)" -->
+"_c('div',[_c('child',{scopedSlots:_u([{key:"default",fn:function(props){return
+[_c('p',[_v("Hello from parent")]),_c('p',[_v(_s(props.text +
+props.msg))])]}}])})],1)"

@@ -198,7 +198,7 @@ export function getRawBindingAttr(el: ASTElement, name: string) {
 }
 
 /**
- * 获取 el 对象上执行属性 name 的值
+ * 获取 el 对象上指定属性 name 的值
  */
 export function getBindingAttr(
   el: ASTElement,

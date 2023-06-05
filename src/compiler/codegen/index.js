@@ -335,7 +335,9 @@ export function genData(el: ASTElement, state: CodegenState): string {
   if (el.scopedSlots) {
     data += `${genScopedSlots(el, el.scopedSlots, state)},`;
   }
+
   // component v-model
+  // 组件v-model拼接
   if (el.model) {
     data += `model:{value:${el.model.value},callback:${el.model.callback},expression:${el.model.expression}},`;
   }

@@ -32,6 +32,8 @@ export function installRenderHelpers(target: any) {
    * 运行时渲染 v-for 列表的帮助函数，循环遍历 val 值，依次为每一项执行 render 方法生成 VNode，最终返回一个 VNode 数组
    */
   target._l = renderList;
+
+  // 解析插槽
   target._t = renderSlot;
 
   /**
@@ -49,6 +51,7 @@ export function installRenderHelpers(target: any) {
    *   2、为静态树的 VNode 打静态标记
    */
   target._m = renderStatic;
+
   target._f = resolveFilter;
   target._k = checkKeyCodes;
   target._b = bindObjectProps;
@@ -61,7 +64,9 @@ export function installRenderHelpers(target: any) {
    * 为空节点创建 VNode
    */
   target._e = createEmptyVNode;
+  // 解析作用域插槽
   target._u = resolveScopedSlots;
+
   target._g = bindObjectListeners;
   target._d = bindDynamicKeys;
   target._p = prependModifier;
